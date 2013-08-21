@@ -1,0 +1,29 @@
+<h1>Listing pages</h1>
+
+<div class="new-link">
+  <%= link_to 'New Page', new_administration_page_path %>
+</div>
+
+<div class="table-wrapper">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Show in front page</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @pages.each do |page| %>
+    <tr class='<%= cycle("odd", "even") %>'>
+      <td><%= link_to(page.title, administration_page_path(page)) %></td>
+      <td><%= page.body %></td>
+      <td><%= page.is_front_page %></td>
+      <td><%= link_to 'Show', administration_page_path(page) %></td>
+      <td><%= link_to 'Edit', edit_administration_page_path(page) %></td>
+      <td><%= link_to 'Destroy', administration_page_path(page), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>

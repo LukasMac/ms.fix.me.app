@@ -1,0 +1,17 @@
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to 'Amozan.com', root_path, id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <% Page.content_pages.each do |page| %>
+            <li><%= link_to page.title, page %></li>
+          <% end %>
+        </ul>
+      </nav>
+
+
+
+    </div>
+  </div>
+</header>

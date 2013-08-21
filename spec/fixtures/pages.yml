@@ -1,0 +1,18 @@
+valid_page:
+  title: "Page title"
+  body: "Page body"
+  is_front_page: false
+
+invalid_page:
+  body: "Invalid page. I have no title"
+  is_front_page: false
+
+front_page:
+  title: "Page front"
+  body: "Page front body"
+  is_front_page: true
+
+content_page:
+  title: "Content front"
+  body: "Content front body"
+  is_front_page: false

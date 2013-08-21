@@ -1,0 +1,23 @@
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <nav>
+
+      <div id='header'>
+        <div id='title'>
+          <%= link_to raw('Amozan.com - Administration'), '/administration' %>
+        </div>
+        <div id='navigation'>
+          <ul>
+            <li><%= link_to 'Categories', administration_categories_path %></li>
+            <li><%= link_to 'Products', administration_products_path %></li>
+            <li><%= link_to 'Variants', administration_variants_path %></li>
+            <li><%= link_to 'Pages', administration_pages_path %></li>
+          </ul>
+        </div>
+      </div>
+
+      </nav>
+    </div>
+  </div>
+</header>
