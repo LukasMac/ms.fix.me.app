@@ -1,11 +1,19 @@
 MsFixMeApp::Application.routes.draw do
 
+  root :to => 'home#home'
+
   match '/' => 'home#home'
   match '/products/:url_segment' => 'products#show'
   match '/categories/:url_segment' => 'categories#show'
+  match '/pages/:url_segment' => 'pages#show'
+  
+  resources :pages
 
   namespace :administration do
     match '/' => 'home#home'
+    
+    resources :pages
+
     resources :categories do
       member do
         post :archive
@@ -15,6 +23,7 @@ MsFixMeApp::Application.routes.draw do
         post :undelete
       end
     end
+
 
     resources :products do
       member do
@@ -28,6 +37,7 @@ MsFixMeApp::Application.routes.draw do
 
     resources :variants
   end
+
 
     # Sample resource route within a namespace:
   #   namespace :admin do

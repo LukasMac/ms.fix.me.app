@@ -2,7 +2,11 @@ class Administration::ProductsController < Administration::AdministrationControl
   # GET /products
   # GET /products.json
   def index
-    @products = Product.published
+    if params[:published_status] && params[:published_status] != '0'
+      @products = Product.where(published_status: params[:published_status]).paginate(:page => params[:page])
+    else
+      @products = Product.paginate(:page => params[:page])
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -60,7 +64,7 @@ class Administration::ProductsController < Administration::AdministrationControl
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to administration_product_path(@product), notice: 'Product was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

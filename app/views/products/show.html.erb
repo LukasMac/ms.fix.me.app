@@ -1,3 +1,4 @@
+
 <div id='product'>
 	<div id='product-intro'>
 		<h1><%= @product.name %></h1>
@@ -5,7 +6,7 @@
 		<%= @product.name %> has <%= pluralize(@product.variants.size, "wonderful variant") %> to choose from.
 	</div>
 	<div id='images'>
-		<%= image_tag('missing_image.gif') %>
+		<%= image_tag @product.photo.url %>
 	</div>
 
 	<div id='variants'>
@@ -17,6 +18,7 @@
 					<small>(<%= variant.stock_level_available %> available)</small>
 				</div>
 				<div class='buy'>
+					<span class="price">&pound;&nbsp;<%= variant.price %></span>
 					<% if variant.buyable? %>
 						<input type='submit' class='buy-button' value='BUY' />
 					<% else %>

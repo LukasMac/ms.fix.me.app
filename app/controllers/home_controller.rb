@@ -1,7 +1,7 @@
 class HomeController < ShopController
 
 	def home
-		@products = Product.public_viewable.random_best_sellers(20)
+		@pages = Page.front_pages
 	end
 
 end

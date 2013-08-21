@@ -2,7 +2,7 @@ class Administration::VariantsController < Administration::AdministrationControl
   # GET /variants
   # GET /variants.json
   def index
-    @variants = Variant.all
+    @variants = Variant.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -60,7 +60,7 @@ class Administration::VariantsController < Administration::AdministrationControl
 
     respond_to do |format|
       if @variant.update_attributes(params[:variant])
-        format.html { redirect_to @variant, notice: 'Variant was successfully updated.' }
+        format.html { redirect_to administration_variant_path(@variant), notice: 'Variant was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

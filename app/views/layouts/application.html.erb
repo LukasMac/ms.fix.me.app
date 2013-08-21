@@ -5,36 +5,40 @@
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
+		<%= render 'layouts/shim' %>
 	</head>
 	<body>
+		<%= render 'layouts/header' %>
+
+
 		<div id='content'>
-			<div id='header'>
-				<div id='title'>
-					<%= link_to 'Amozan.com', '/' %>
-				</div>
 
-				<div id='navigation'>
-					<% parent = @category ? (@category.parent ? @category.parent : @category) : nil %>
-					<ul>
-						<% @root_categories.each do |category| %>
-							<% klass = parent == category ? 'current' : '' %>
-							<%= content_tag(:li, link_to(category.name, category, :class => klass)) %>
-						<% end %>
-					</ul>
-					<% if parent %>
-						<ul>
-							<% parent.children.published.each do |child| %>
-								<% klass = @category == child ? 'current' : '' %>
-								<%= content_tag(:li, link_to(child.name, child, :class => klass)) %>
-							<% end %>
-						</ul>
-					<% end %>
-				</div>
-			</div>
 
-			<div id='main-body'>
-				<%= yield %>
-			</div>
+			<div class="center">
+				<h3>Select category</h3>
+		    <% parent = @category ? (@category.parent ? @category.parent : @category) : nil %>
+	      	<% @root_categories.each do |category| %>
+	        <% klass = parent == category ? 'current' : '' %>
+	        <%= content_tag(:span, link_to(category.name, category, :class => klass), :class => 'category-item') %>
+	      <% end %>
+    	</div>
+
+    	<div class="center">
+	    	<% if parent && parent.children.published.count > 0 %>
+	    		<h5>Sub categories</h5>
+	        <% parent.children.published.each do |child| %>
+	          <% klass = @category == child ? 'current' : '' %>
+	          <%= content_tag(:span, link_to(child.name, child, :class => klass), :class => 'category-item') %>
+	        <% end %>
+	      <% end %>
+    	</div>
+
+
+			<div class="container" id='main-body'>
+	      <%= yield %>
+	      <div style="clear: both;"></div>
+	      <%= render 'layouts/footer' %>
+	    </div>
 		</div>
 	</body>
 </html>

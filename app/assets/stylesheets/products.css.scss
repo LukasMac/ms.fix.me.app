@@ -67,6 +67,11 @@
 					@include span-columns(1 of 1);
 				}
 			}
+
+			.price {
+				font-weight: bold;
+			}
+
 		}
 	}
 }

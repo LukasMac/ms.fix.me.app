@@ -1,5 +1,7 @@
-<div>
-	<% @products.each do |product| %>
-		<%= render :partial => '/product-tile', :locals => { :product => product } %>
-	<% end %>
-</div>
+<h1>Welcome to Amozan.com!</h1>
+
+<% @pages.each do |page| %>
+	<h2><%= page.title %></h2>
+	<%= page.body %>
+	<hr>
+<% end %>

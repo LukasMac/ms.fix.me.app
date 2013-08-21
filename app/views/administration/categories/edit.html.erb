@@ -1,6 +1,6 @@
 <h1>Editing category</h1>
 
-<%= render 'form' %>
+<%= render 'form', action_url: administration_category_path(@category) %>
 
 <%= link_to 'Show', administration_category_path(@category) %> |
 <%= link_to 'Back', administration_categories_path %>

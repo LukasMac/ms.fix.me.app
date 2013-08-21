@@ -1,6 +1,6 @@
 <h1>Editing product</h1>
 
-<%= render 'form' %>
+<%= render 'form',  action_url: administration_product_path(@product) %>
 
-<%= link_to 'Show', @product %> |
+<%= link_to 'Show', administration_product_path(@product) %> |
 <%= link_to 'Back', administration_products_path %>

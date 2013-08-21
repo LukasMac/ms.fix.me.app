@@ -1,10 +1,10 @@
 <div class='product-tile'>
 	<div class='image-and-title'>
 		<div class='image'>
-			<%= image_tag('missing_image_100_67.gif') %>
+			<%= image_tag product.photo.url %>
 		</div>
 		<div class='title'>
-			<%= link_to(product.name, product) %>
+			<%= link_to(product.title_with_price_range, product) %>
 		</div>
 	</div>
 	<div class='strapline'>

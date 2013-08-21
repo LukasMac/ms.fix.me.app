@@ -8,6 +8,9 @@ gem 'rails', '3.2.8'
 gem 'mysql2'
 gem 'neat'
 gem 'bourbon'
+gem 'paperclip'
+gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-sass', '2.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -25,7 +28,9 @@ gem 'jquery-rails'
 
 group :development, :test do 
   gem 'rspec'
-  gem "rspec-rails"  
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'spork', '0.9.2'
 end
 
 # To use ActiveModel has_secure_password
